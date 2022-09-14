@@ -3,9 +3,9 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/lab-00-coupling/pom.xml" />
-        <option value="$PROJECT_DIR$/lab-01-ioc/pom.xml" />
         <option value="$PROJECT_DIR$/lab-02-di/pom.xml" />
+        <option value="$PROJECT_DIR$/lab-01-ioc/pom.xml" />
+        <option value="$PROJECT_DIR$/lab-00-coupling/pom.xml" />
       </list>
     </option>
   </component>
