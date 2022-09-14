@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="703d8464-e7dc-47ae-9815-77fe7c91e8db" name="Changes" comment="Practice">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab-01-ioc/lab-01-ioc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lab-01-ioc/lab-01-ioc.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab-02-di/src/test/java/com/cydeo/CartRepositoryTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab-02-di/src/test/java/com/cydeo/CartServiceTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab-02-di/target/test-classes/com/cydeo/CartRepositoryTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab-02-di/target/test-classes/com/cydeo/CartServiceTest.class" beforeDir="false" />
-    </list>
+    <list default="true" id="703d8464-e7dc-47ae-9815-77fe7c91e8db" name="Changes" comment="Practice" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,17 +33,18 @@
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/ramazancetintas/IdeaProjects/Spring-LabWork/lab-01-ioc/src&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/ramazancetintas/IdeaProjects/Spring-LabWork/lab-02-di/src"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lab-02-di/src" />
       <recent name="$PROJECT_DIR$/lab-01-ioc/src" />
     </key>
   </component>
@@ -85,7 +78,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1663105292456</updated>
-      <workItem from="1663105294882" duration="5321000" />
+      <workItem from="1663105294882" duration="5661000" />
     </task>
     <task id="LOCAL-00001" summary="Practice">
       <created>1663119166192</created>
@@ -94,7 +87,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663119166192</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Practice">
+      <created>1663163145846</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1663163145846</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
