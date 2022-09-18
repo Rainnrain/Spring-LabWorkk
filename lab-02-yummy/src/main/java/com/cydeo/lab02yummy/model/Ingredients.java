@@ -4,7 +4,7 @@ import lombok.Data;
 import org.springframework.stereotype.Component;
 
 @Data
-@Component
+//@Component
 public class Ingredients {
     private String name;
     private int quantiy;

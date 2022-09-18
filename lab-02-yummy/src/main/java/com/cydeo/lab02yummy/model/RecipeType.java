@@ -1,7 +1,5 @@
 package com.cydeo.lab02yummy.model;
 
-import org.springframework.stereotype.Component;
-
 
 public enum RecipeType {
   BREAKFAST(1), LUNCH(2), DESSERT(3), APPETIZER(4), BAKED(5), SOUP(6), VEGETARIAN(7), OTHER;

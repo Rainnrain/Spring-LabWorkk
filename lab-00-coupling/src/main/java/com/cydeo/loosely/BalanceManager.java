@@ -1,18 +1,15 @@
 package com.cydeo.loosely;
 
-import com.cydeo.CustomerBalance;
-import com.cydeo.GiftCardBalance;
+import lombok.AllArgsConstructor;
+
 import java.math.BigDecimal;
 
 public class BalanceManager {
 
-    Balance balance;
 
-    public BalanceManager(Balance balance) {
-        this.balance = balance;
-    }
 
-    public boolean checkout(BigDecimal checkoutAmount) {
+
+    public boolean checkout(Balance balance, BigDecimal checkoutAmount) {
 
         BigDecimal balanceAmount=  balance.getAmount();
 

@@ -2,13 +2,11 @@ package com.cydeo.lab02yummy;
 
 import com.cydeo.lab02yummy.model.Recipe;
 import com.cydeo.lab02yummy.model.RecipeType;
-import com.cydeo.lab02yummy.service.RecipeService;
 import com.cydeo.lab02yummy.service.RecipeServiceImp;
 import com.github.javafaker.Faker;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 public class CydeoApplication {

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 @Data
-@Component
+//@Component
 public class Recipe {
 
     private int id;

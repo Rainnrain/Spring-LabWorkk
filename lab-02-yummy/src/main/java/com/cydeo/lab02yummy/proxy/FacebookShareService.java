@@ -1,7 +1,6 @@
 package com.cydeo.lab02yummy.proxy;
 
 import com.cydeo.lab02yummy.model.Recipe;
-import lombok.Data;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 

@@ -15,20 +15,20 @@ import java.util.UUID;
 public class Config {
 
    @Bean
-    public Current current(){
+    public Current current(Currency currency){
        Current c= new Current();
        c.setAccountId(UUID.randomUUID());
-       c.setCurrency(currency());
-       c.setAmount(BigDecimal.TEN);
+       c.setCurrency(currency);
+       c.setAmount(new BigDecimal("23"));
        return c;
    }
    @Bean
-   public Saving saving(){
+   public Saving saving(Currency currency){
        Saving s = new Saving();
        s.setAccountId(UUID.randomUUID());
-       s.setAmount(BigDecimal.TEN);
+       s.setAmount(new BigDecimal("500"));
        s.setCurrency(currency());
-return s;
+        return s;
    }
 
     @Bean
