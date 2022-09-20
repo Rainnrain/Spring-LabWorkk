@@ -11,8 +11,8 @@ import java.util.Map;
 
 @Component
 public class CartServiceImpl implements CartService{
-    private CartRepository cartRepository;
-    private StockService service;
+    private final CartRepository cartRepository;
+    private final StockService service;
 
     public CartServiceImpl(CartRepository cartRepository, StockService service) {
         this.cartRepository = cartRepository;

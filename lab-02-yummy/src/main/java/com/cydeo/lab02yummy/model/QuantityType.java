@@ -4,13 +4,13 @@ package com.cydeo.lab02yummy.model;
 
 
 public enum QuantityType {
-    OUNCE, LB, TBSP, OTHER;
+        OUNCE, LB, TBSP, OTHER;
 
 
-    public static QuantityType getQuantityType(int num){
+        public static com.cydeo.lab02yummy.model.QuantityType getQuantityType(int num){
 
-        return (num==1)?OUNCE:(num==2)?LB:(num==3)?TBSP:OTHER;
+            return (num==1)?OUNCE:(num==2)?LB:(num==3)?TBSP:OTHER;
+        }
+
+
     }
-
-
-}

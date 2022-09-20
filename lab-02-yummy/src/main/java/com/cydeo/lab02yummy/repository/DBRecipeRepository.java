@@ -11,7 +11,7 @@ public class DBRecipeRepository implements RecipeRepository {
     List<Recipe> recipeList = new ArrayList<>();
 
     @Override
-    public boolean saveRecipe(Recipe recipe) {
+    public boolean save(Recipe recipe) {
         if (recipe != null && !ObjectUtils.isEmpty(recipe)) {
             recipeList.add(recipe);
             return true;

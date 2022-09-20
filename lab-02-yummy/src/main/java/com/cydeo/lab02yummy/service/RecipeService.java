@@ -5,7 +5,7 @@ import com.cydeo.lab02yummy.model.Recipe;
 public interface RecipeService {
 
 
-    public void prepareRecipe(Recipe recipe);
+    public boolean prepareRecipe();
 
 
 }
