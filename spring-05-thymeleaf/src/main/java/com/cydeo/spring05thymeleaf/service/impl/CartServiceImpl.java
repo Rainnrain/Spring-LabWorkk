@@ -17,8 +17,9 @@ import java.util.stream.Stream;
 @Service
 public class CartServiceImpl implements CartService {
 
-    public static Cart CART = new Cart(BigDecimal.ZERO,new ArrayList<>());
-   public static List<CartItem> cartItemList= new ArrayList<>();
+
+    public static Cart CART = new Cart(BigDecimal.ZERO, new ArrayList<>());
+    public static List<CartItem> cartItemList= new ArrayList<>();
 
     private final ProductService productService;
 
@@ -33,26 +34,26 @@ public class CartServiceImpl implements CartService {
         //todo calculate cart total amount
         //todo add to cart
 
-        if(cartItemList.contains(productService.findProductById(productId))) {
-
+        if(cartItemList.stream().map(p->p.getProduct()).anyMatch(product ->product.getId().toString().equals(productId.toString()) )) {
 
             CartItem cartItem =cartItemList.stream().filter(p->p.getProduct().getId().toString().equals(productId.toString())).findAny().orElseThrow();
 
             Product product= cartItem.getProduct();
 
-            product.setQuantity(product.getQuantity()+quantity);
+            product.setQuantity(product.getQuantity()+product.getRemainingQuantity());
 
             cartItem.setQuantity(product.getQuantity());
             cartItem.setTotalAmount(product.getPrice().multiply(BigDecimal.valueOf(cartItem.getQuantity())));
 
             CART.setCartItemList(cartItemList);
-            CART.setCartTotalAmount(CART.getCartTotalAmount().add(cartItem.getTotalAmount()));
+            CART.setCartTotalAmount(CART.getCartTotalAmount().add((product.getPrice().multiply(BigDecimal.valueOf(product.getRemainingQuantity())))));
 
 
         } else{
 
            Product product= productService.findProductById(productId);
-            CartItem cartItem= new CartItem(product, product.getQuantity(), product.getPrice().multiply(BigDecimal.valueOf(product.getQuantity())));
+           product.setQuantity(product.getRemainingQuantity());
+            CartItem cartItem= new CartItem(product, product.getRemainingQuantity(), product.getPrice().multiply(BigDecimal.valueOf(product.getQuantity())));
             cartItemList.add(cartItem);
             CART.setCartTotalAmount(CART.getCartTotalAmount().add(cartItem.getTotalAmount()));
             CART.setCartItemList(cartItemList);
@@ -70,7 +71,7 @@ public class CartServiceImpl implements CartService {
 
 
      cartItemList.removeIf(p->p.getProduct().getId().toString().equals(productId.toString()));
-     CART.setCartItemList(cartItemList);
+    // CART.setCartItemList(cartItemList);
 
      CART.setCartTotalAmount(CART.getCartTotalAmount().subtract(amountToDelete));
 

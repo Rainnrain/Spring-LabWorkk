@@ -7,7 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @Controller
+
 public class ProductController {
 
     private final ProductServiceImpl productService;
@@ -26,16 +29,20 @@ public class ProductController {
 
 
     @PostMapping("/create-product")
-    public String createProduct(@ModelAttribute("product") Product product, Model model) {
+    public String createProduct(@ModelAttribute("product") Product product) {
     productService.productCreate(product);
-    productRepository.save(product);
     return "redirect:/list";
 }
+
+    @GetMapping("/create-product")
+    public String createProduct2() {
+
+        return "redirect:/list";
+    }
 
 
     @GetMapping("/list")
     public String listProduct(Model model){
-
     model.addAttribute("productList", productService.listProduct() );
         return "product/list";
     }

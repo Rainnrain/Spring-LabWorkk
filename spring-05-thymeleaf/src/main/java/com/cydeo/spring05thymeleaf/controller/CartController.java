@@ -7,6 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import java.util.UUID;
 
 @Controller
@@ -33,10 +35,10 @@ public class CartController {
         return "redirect:/cart";
     }
 
-    @GetMapping("/delete/{id}")
-    public String delete(@PathVariable UUID id){
+    @GetMapping("/delete/{productId}")
+    public String delete(@PathVariable UUID productId){
 
-        cartServiceImpl.deleteFromCart(id);
+        cartServiceImpl.deleteFromCart(productId);
 
        return "redirect:/cart";
     }

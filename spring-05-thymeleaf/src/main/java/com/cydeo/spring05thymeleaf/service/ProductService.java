@@ -10,4 +10,5 @@ public interface ProductService {
     boolean productCreate(Product product);
     List<Product> listProduct();
     Product findProductById(UUID uuid);
+    Product updateProduct(Product product);
 }
