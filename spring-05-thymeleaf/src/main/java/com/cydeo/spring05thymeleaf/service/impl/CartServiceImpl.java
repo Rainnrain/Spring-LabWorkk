@@ -56,7 +56,7 @@ public class CartServiceImpl implements CartService {
             CartItem cartItem= new CartItem(product, product.getRemainingQuantity(), product.getPrice().multiply(BigDecimal.valueOf(product.getQuantity())));
             cartItemList.add(cartItem);
             CART.setCartTotalAmount(CART.getCartTotalAmount().add(cartItem.getTotalAmount()));
-            CART.setCartItemList(cartItemList);
+           CART.setCartItemList(cartItemList);
         }
         return CART;
     }

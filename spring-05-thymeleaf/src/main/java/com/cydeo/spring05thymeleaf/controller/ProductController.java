@@ -5,9 +5,10 @@ import com.cydeo.spring05thymeleaf.repository.ProductRepository;
 import com.cydeo.spring05thymeleaf.service.impl.ProductServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import javax.validation.Valid;
 
-import java.util.UUID;
 
 @Controller
 
@@ -29,8 +30,13 @@ public class ProductController {
 
 
     @PostMapping("/create-product")
-    public String createProduct(@ModelAttribute("product") Product product) {
-    productService.productCreate(product);
+    public String createProduct(@Valid @ModelAttribute("product") Product product, BindingResult bindingResult, Model model) {
+
+        if(bindingResult.hasErrors()){
+            return "product/create-product";
+        }
+
+        productService.productCreate(product);
     return "redirect:/list";
 }
 
