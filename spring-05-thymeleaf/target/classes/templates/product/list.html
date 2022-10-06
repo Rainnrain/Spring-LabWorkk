@@ -34,7 +34,7 @@
                         <td th:text="${products.price}"> </td><!-- todo product variables-->
                         <td th:text="${products.remainingQuantity}"></td><!-- todo product variables-->
                         <td>
-                            <a class="btn btn-primary" th:href="@{/addToCart/id/quantity}" id="${product.id}" quantity = "${product.quantity}">Add Cart<i></i></a> <!-- todo a href with two variables-->
+                            <a class="btn btn-primary" th:href="@{/addToCart/{id}/{quantity} (id=${products.id},quantity = ${products.quantity})}">Add Cart<i></i></a> <!-- todo a href with two variables-->
                         </td>
                     </tr>
                     </tbody>
