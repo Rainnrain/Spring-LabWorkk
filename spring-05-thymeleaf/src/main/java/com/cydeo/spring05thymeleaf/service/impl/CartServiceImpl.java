@@ -64,16 +64,15 @@ public class CartServiceImpl implements CartService {
     @Override
     public boolean deleteFromCart(UUID productId){
 
-       BigDecimal amountToDelete=cartItemList.stream()
+      CartItem cartItem=cartItemList.stream()
                .filter(p->p.getProduct().getId().toString().equals(productId.toString()))
-               .map(p->p.getTotalAmount())
                .findAny().orElseThrow();
 
+     cartItemList.remove(cartItem);
+     CART.setCartItemList(cartItemList);
 
-     cartItemList.removeIf(p->p.getProduct().getId().toString().equals(productId.toString()));
-    // CART.setCartItemList(cartItemList);
+     CART.setCartTotalAmount(CART.getCartTotalAmount().subtract(cartItem.getTotalAmount()));
 
-     CART.setCartTotalAmount(CART.getCartTotalAmount().subtract(amountToDelete));
 
         return true;
     }
