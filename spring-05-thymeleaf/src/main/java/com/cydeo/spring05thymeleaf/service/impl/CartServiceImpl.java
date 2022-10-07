@@ -69,7 +69,6 @@ public class CartServiceImpl implements CartService {
                .findAny().orElseThrow();
 
      cartItemList.remove(cartItem);
-     CART.setCartItemList(cartItemList);
 
      CART.setCartTotalAmount(CART.getCartTotalAmount().subtract(cartItem.getTotalAmount()));
 

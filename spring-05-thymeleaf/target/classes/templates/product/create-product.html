@@ -27,12 +27,12 @@
                                 <label >Price</label>
                                 <input type="number"  placeholder="price" th:field="*{price}" th:required="true"> <!-- todo price attribute-->
 
-                        <div class="invalid-feedback" th:if="${#fields.hasErrors('price')}">
-                            <ul>
-                                <li th:each="err : ${#fields.errors('price')}"
-                                    th:text="${err}"></li>
-                            </ul>
-                        </div>
+                                <div class="invalid-feedback" th:if="${#fields.hasErrors('price')}">
+                                    <ul>
+                                        <li th:each="err : ${#fields.errors('price')}"
+                                            th:text="${err}"></li>
+                                    </ul>
+                                </div>
                             </div>
 
                             <div class="form-group blu-margin" th:class="'form-group'">
