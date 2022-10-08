@@ -13,8 +13,8 @@ public class CartController {
 
     private final CartService cartService;
 
-    public CartController(CartService cartServiceImpl) {
-        this.cartService = cartServiceImpl;
+    public CartController(CartService cartService) {
+        this.cartService = cartService;
     }
 
     @GetMapping("/cart")
