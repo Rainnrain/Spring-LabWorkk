@@ -1,7 +1,6 @@
 package com.cydeo.spring05thymeleaf.controller;
 
 import com.cydeo.spring05thymeleaf.service.CartService;
-import com.cydeo.spring05thymeleaf.service.impl.CartServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,5 +40,8 @@ public class CartController {
 
        return "redirect:/cart";
     }
+
+
+
 
 }
