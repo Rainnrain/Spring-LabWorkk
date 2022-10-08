@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import java.util.UUID;
 
+import static com.cydeo.spring05thymeleaf.service.impl.CartServiceImpl.CART;
+
 @Controller
 public class CartController {
 
@@ -19,8 +21,8 @@ public class CartController {
 
     @GetMapping("/cart")
     public String viewCart(Model model){
-    model.addAttribute("cartItemList", CartServiceImpl.CART.getCartItemList());
-    model.addAttribute("cart", CartServiceImpl.CART.getCartTotalAmount());
+    model.addAttribute("cartItemList", CART.getCartItemList());
+    model.addAttribute("cart", CART.getCartTotalAmount());
         return "cart/show-cart";
     }
 
