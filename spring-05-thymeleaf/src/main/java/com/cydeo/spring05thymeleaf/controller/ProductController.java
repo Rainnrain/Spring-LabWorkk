@@ -2,7 +2,7 @@ package com.cydeo.spring05thymeleaf.controller;
 
 import com.cydeo.spring05thymeleaf.model.Product;
 import com.cydeo.spring05thymeleaf.repository.ProductRepository;
-import com.cydeo.spring05thymeleaf.service.impl.ProductServiceImpl;
+import com.cydeo.spring05thymeleaf.service.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,10 +14,10 @@ import javax.validation.Valid;
 
 public class ProductController {
 
-    private final ProductServiceImpl productService;
+    private final ProductService productService;
     private final ProductRepository productRepository;
 
-    public ProductController(ProductServiceImpl productService, ProductRepository productRepository) {
+    public ProductController(ProductService productService, ProductRepository productRepository) {
         this.productService = productService;
         this.productRepository = productRepository;
     }
