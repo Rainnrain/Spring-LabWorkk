@@ -1,4 +1,5 @@
 package com.cydeo;
+import com.cydeo.enums.CartState;
 import com.cydeo.repository.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -29,5 +30,24 @@ public class QueryDemo implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+
+//        System.out.println(addressRepository.findByStreet("Fordem"));
+ //      System.out.println(addressRepository.getAddressByCustomer_Email("tsicklinga@4shared.com"));
+  //      System.out.println(addressRepository.findAddressByCustomer_Email("cpagitt4@slate.com"));
+ //     System.out.println(addressRepository.findByCustomer_FirstName("Danny"));
+//        System.out.println(addressRepository.findByStreetContainsIgnoreCase("wood"));
+//        System.out.println(addressRepository.addressesWithASpecificCustomerIDJPQL(2L));
+
+      //  System.out.println(cartItemRepository.findByCartCartState(CartState.SOLD));
+     //  System.out.println(cartItemRepository.cartItemsByState( "SOLD","Capon" ));
+      //  System.out.println(cartItemRepository.retrieveCartsByCartStateAndProduct("Capon", "SOLD"));
+   //     System.out.println(cartItemRepository.retrieveCartItemWithSpecificStateAndProductName("SOLD", "Muffin"));
+
+      //  System.out.println(orderRepository.findByProduct("Soup"));
+        //System.out.println(balanceRepository.existsBalanceByAmountGreaterThan(0.0));
+        //System.out.println(balanceRepository.listMax5Balance());
+        //System.out.println(balanceRepository.findBalanceByAmountGreaterThanEqual(200.00));
+        System.out.println(balanceRepository.listOfBalancesBelow(200.00));
+
     }
 }

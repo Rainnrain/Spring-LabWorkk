@@ -2,11 +2,10 @@ package com.cydeo.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.data.repository.cdi.Eager;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Data
@@ -17,10 +16,11 @@ public class Product extends BaseEntity{
     private Double price;
     private Integer quantity;
     private Integer remainingQuantity;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name="product_category_rel",
             joinColumns = @JoinColumn(name="p_id"),
             inverseJoinColumns = @JoinColumn(name="c_id"))
+
     private List<Category> category;
 
 

@@ -15,6 +15,6 @@ public class Customer extends BaseEntity {
     private String firstName;
     private String lastName;
     private String userName;
-    @OneToMany(mappedBy = "customer")
-    private List<Address> address;
+//    @OneToMany(mappedBy = "customer")
+//    private List<Address> address;
 }
