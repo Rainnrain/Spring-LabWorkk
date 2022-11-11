@@ -15,6 +15,8 @@ public interface CartItemRepository extends JpaRepository<CartItem, Long> {
 
     //Write a derived query to get count cart items
 
+    int countByQuantity();
+
     //Write a derived query to get cart items for specific cart state
    List<CartItem> findByCartCartState(CartState cartState);
 
@@ -39,5 +41,15 @@ public interface CartItemRepository extends JpaRepository<CartItem, Long> {
             " where ci.product_id=p.id and p.name ilike concat ('%', ?1, '%') and ci.cart_id=c.id and c.cart_state = ?2 ",nativeQuery = true)
     List<CartItem> retrieveCartsByCartStateAndProduct(String name, String state);
     //Write a native query to get cart items for specific cart state and without discount
+
+    @Query(value = "select * from cart_item ci " +
+            "where ci.cart.state =?1 and ci.cart.discount.dicount=?2", nativeQuery = true)
+    List<CartItem> retrieveCartsByCartStateNodiscount(String state, int discount);
+
     //Write a native query to get cart items for specific cart state and with specific Discount type
+
+    @Query(value = "select * from cart_item ci " +
+            "where ci.cart.state =?1 and ci.cart.discount.dicountType=?2", nativeQuery = true)
+    List<CartItem> retrieveCartsByCartStateDiscountType(String state, String discountType);
+
 }
