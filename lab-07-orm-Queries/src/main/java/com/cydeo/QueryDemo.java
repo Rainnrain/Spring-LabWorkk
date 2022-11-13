@@ -47,7 +47,7 @@ public class QueryDemo implements CommandLineRunner {
         //System.out.println(balanceRepository.existsBalanceByAmountGreaterThan(0.0));
         //System.out.println(balanceRepository.listMax5Balance());
         //System.out.println(balanceRepository.findBalanceByAmountGreaterThanEqual(200.00));
-        System.out.println(balanceRepository.listOfBalancesBelow(200.00));
+      //  System.out.println(balanceRepository.listOfBalancesBelow(200.00));
 
     }
 }

@@ -16,6 +16,7 @@ public class Product extends BaseEntity{
     private Double price;
     private Integer quantity;
     private Integer remainingQuantity;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name="product_category_rel",
             joinColumns = @JoinColumn(name="p_id"),
