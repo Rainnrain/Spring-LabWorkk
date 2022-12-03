@@ -48,6 +48,6 @@ public class QueryDemo implements CommandLineRunner {
         //System.out.println(balanceRepository.listMax5Balance());
         //System.out.println(balanceRepository.findBalanceByAmountGreaterThanEqual(200.00));
       //  System.out.println(balanceRepository.listOfBalancesBelow(200.00));
-
+        System.out.println(addressRepository.findTop3ByCustomerEmail("asturton0@list-manage.com"));
     }
 }

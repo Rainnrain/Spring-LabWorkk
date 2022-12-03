@@ -1,6 +1,8 @@
 package com.cydeo.repository;
 
+
 import com.cydeo.entity.Orders;
+import com.cydeo.enums.PaymentMethod;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -10,25 +12,38 @@ import java.util.List;
 
 
 @Repository
-public interface OrderRepository extends JpaRepository <Orders, Long> {
+public interface OrderRepository extends JpaRepository<Orders, Long> {
     //Write a derived query to get top 5 orders by order by total price desc
+    List<Orders> findTop5ByOrderByTotalPriceDesc();
+
     //Write a derived query to get all orders by customer email
+    List<Orders> findAllByCustomer_Email(String email);
+
     //Write a derived query to get all orders by specific payment method
-    //Write a derived query to get all orders by specific payment method
-    //Write a derived query to get all orders by specific customer email
+    List<Orders> findAllByPayment_PaymentMethod(PaymentMethod paymentMethod);
+
     //Write a derived query to check is there any orders by customer email
+    boolean existsByCustomer_email(String email);
+
     //Write a native query to get all orders by specific product name
-
-
-    @Query(value = "SELECT * from orders " +
-            " JOIN cart  ON orders_cart_id =cart_id " +
-            " JOIN cart_item  ON cart_item_id= cart_cart_item_id "+
-            " Join product ON product_id= cart_item_product_id " +
-            "Where product_name ILIKE concat ('%',?1,'%')", nativeQuery = true)
-    List<Orders> findByProduct(@Param("product") String product);
+    @Query(value = "SELECT * FROM orders o JOIN cart c ON o.cart_id = c.id " +
+            "JOIN cart_item ci ON ci.cart_id = c.id " +
+            "JOIN product p ON ci.product_id= p.id WHERE p.name = ?1", nativeQuery = true)
+    List<Orders> retrieveAllOrdersByProductName(@Param("name") String name);
 
     //Write a native query to get all orders by specific categoryId
-    //Write a derived query to get all orders by totalPrice and paidPrice are equals
+    @Query(value = "SELECT * FROM orders o JOIN cart c ON o.cart_id = c.id " +
+            "JOIN cart_item ci ON ci.cart_id = c.id " +
+            "JOIN product p ON ci.product_id= p.id " +
+            "JOIN category ca ON ca.id = p.c_id WHERE ca.id = ?1", nativeQuery = true)
+    List<Orders> retrieveAllOrdersByCategoryId(@Param("id") Long id);
+
+    //Write a JPQL query to get all orders by totalPrice and paidPrice are equals
+    @Query("SELECT o FROM Orders  o WHERE o.paidPrice = o.totalPrice")
+    List<Orders> retrieveAllOrdersBetweenTotalPriceAndPaidPriceIsSame();
+
     //Write a derived query to get all orders by totalPrice and paidPrice are not equals and discount is not null
 
+    @Query("SELECT o FROM Orders o WHERE o.paidPrice<>o.totalPrice AND o.cart.discount IS NOT NULL")
+    List<Orders> findAllByPaidPriceAndTotalPriceAEqualsAndCartDiscountIdIsNull();
 }

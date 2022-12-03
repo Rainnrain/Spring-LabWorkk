@@ -16,7 +16,7 @@ public class CartItem extends BaseEntity {
     @ManyToOne
     private Cart cart;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Product product;
 
 

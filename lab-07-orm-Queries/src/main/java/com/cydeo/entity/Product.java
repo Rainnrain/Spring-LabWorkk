@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.data.repository.cdi.Eager;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.List;
 
 @Data
@@ -13,7 +14,7 @@ import java.util.List;
 @Entity
 public class Product extends BaseEntity{
     private String name;
-    private Double price;
+    private BigDecimal price;
     private Integer quantity;
     private Integer remainingQuantity;
 

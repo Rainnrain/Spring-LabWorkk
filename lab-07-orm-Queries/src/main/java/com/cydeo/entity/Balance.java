@@ -5,12 +5,13 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
+import java.math.BigDecimal;
 
 @Entity
 @NoArgsConstructor
 @Data
 public class Balance extends BaseEntity{
-    private Double amount;
+    private BigDecimal amount;
     @OneToOne
     private Customer customer;
 
