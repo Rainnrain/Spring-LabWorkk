@@ -1,5 +1,6 @@
 package com.cydeo.lab08rest.dto;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,8 +11,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIgnoreProperties(value={"id"}, ignoreUnknown = true)
+@JsonIgnoreProperties( ignoreUnknown = true)
 public class AddressDTO{
+    @JsonBackReference
     private Long id;
     private String name;
     private String zipCode;

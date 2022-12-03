@@ -29,6 +29,10 @@ public class AddressController {
 
     @PutMapping
     public ResponseEntity <ResponseWrapper> updateAddress(@RequestBody AddressDTO addressDTO){
-        return ResponseEntity.ok( new ResponseWrapper("Address Created", addressService.updateAddress(addressDTO), HttpStatus.OK));
+        return ResponseEntity.ok( new ResponseWrapper("Address Updated", addressService.updateAddress(addressDTO), HttpStatus.OK));
+    }
+    @PostMapping
+    public ResponseEntity<ResponseWrapper> createAddress(@RequestBody AddressDTO addressDTO){
+        return ResponseEntity.ok(new ResponseWrapper("Address Created", addressService.createAddress(addressDTO), HttpStatus.OK));
     }
 }

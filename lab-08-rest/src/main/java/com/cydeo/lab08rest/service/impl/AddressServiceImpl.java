@@ -35,10 +35,31 @@ public class AddressServiceImpl implements AddressService {
     @Override
     public AddressDTO updateAddress(AddressDTO addressDTO) {
 
-    Address createdAddress =mapperUtil.convert(addressDTO, new Address());
     CustomerDTO customerDTO=customerServiceimpl.findById(addressDTO.getCustomerId());
-    createdAddress.setCustomer(mapperUtil.convert(customerDTO, new Customer()));
-    addressRepository.save(createdAddress);
+    Customer customer=mapperUtil.convert(customerDTO, new Customer());
+    List<Address> oldAddresses=addressRepository.findAllByCustomer(customer);
+
+    Address updatedOldAddress=oldAddresses.stream().filter(p->p.getId().equals(addressDTO.getId()))
+                    .map(   p-> {
+                        p.setName(addressDTO.getName());
+                        p.setStreet(addressDTO.getStreet());
+                        p.setZipCode(addressDTO.getZipCode());
+                        return p;
+                            }
+                    ).findFirst().orElseThrow();
+
+    addressRepository.save(updatedOldAddress);
+
+
+
     return addressDTO;
+    }
+
+    @Override
+    public AddressDTO createAddress(AddressDTO addressDTO) {
+        Address createdAddress=mapperUtil.convert(addressDTO, new Address());
+        Customer customer=mapperUtil.convert(customerServiceimpl.findById(addressDTO.getCustomerId()),new Customer());
+        createdAddress.setCustomer(customer);
+        return addressDTO;
     }
 }

@@ -9,4 +9,6 @@ public interface AddressService {
     List<AddressDTO> listAllAddresses();
 
     AddressDTO updateAddress(AddressDTO addressDTO);
+
+    AddressDTO createAddress(AddressDTO addressDTO);
 }
