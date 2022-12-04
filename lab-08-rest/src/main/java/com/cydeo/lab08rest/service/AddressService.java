@@ -11,4 +11,9 @@ public interface AddressService {
     AddressDTO updateAddress(AddressDTO addressDTO);
 
     AddressDTO createAddress(AddressDTO addressDTO);
+    List <AddressDTO> addressStartsWith(String startsWith);
+
+    List<AddressDTO> addressByCustomerId(Integer id);
+
+    List<AddressDTO> addressByCustomerIdAndName(Integer id, String name);
 }

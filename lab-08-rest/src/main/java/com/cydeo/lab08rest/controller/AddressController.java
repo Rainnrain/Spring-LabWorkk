@@ -23,7 +23,6 @@ public class AddressController {
 
     @GetMapping
     public ResponseEntity <ResponseWrapper> getAddress(){
-
        return  ResponseEntity.ok(new ResponseWrapper("List of addresses Retreived", addressService.listAllAddresses(), HttpStatus.OK));
     }
 
@@ -34,5 +33,20 @@ public class AddressController {
     @PostMapping
     public ResponseEntity<ResponseWrapper> createAddress(@RequestBody AddressDTO addressDTO){
         return ResponseEntity.ok(new ResponseWrapper("Address Created", addressService.createAddress(addressDTO), HttpStatus.OK));
+    }
+
+    @GetMapping("/startsWith/{address}")
+    public ResponseEntity<ResponseWrapper> getAddressStartingWith(@PathVariable String address){
+        return ResponseEntity.ok(new ResponseWrapper("Address found by start of address", addressService.addressStartsWith(address), HttpStatus.OK));
+    }
+
+    @GetMapping("/customer/{id}")
+    public ResponseEntity<ResponseWrapper> getAddressByCustomerId(@PathVariable Integer id){
+        return ResponseEntity.ok(new ResponseWrapper("Address found by id", addressService.addressByCustomerId(id), HttpStatus.OK));
+    }
+
+    @GetMapping("/customer/{id}/name/{name}")
+    public ResponseEntity<ResponseWrapper> getAddressByCustomerId(@PathVariable Integer id, @PathVariable String name){
+        return ResponseEntity.ok(new ResponseWrapper("Address found by name and id", addressService.addressByCustomerIdAndName(id, name), HttpStatus.OK));
     }
 }
