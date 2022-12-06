@@ -7,8 +7,11 @@ import com.cydeo.lab08rest.mapper.MapperUtil;
 import com.cydeo.lab08rest.repository.AddressRepository;
 import com.cydeo.lab08rest.service.AddressService;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
@@ -33,26 +36,18 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public AddressDTO updateAddress(AddressDTO addressDTO) {
-        List<Address> listOfAddresses=addressRepository.retrieveByCustomerId(addressDTO.getCustomerId());
-        Address updatedAddress= listOfAddresses.stream()
-                .filter(p->p.getId().equals(addressDTO.getId()))
-                .findAny()
-               .map(p->{
-                   p.setName(addressDTO.getName());
-                   p.setZipCode(addressDTO.getZipCode());
-                   p.setStreet(addressDTO.getStreet());
-                   p.setCustomer(mapperUtil.convert(customerServiceimpl.findById(addressDTO.getCustomerId()),new Customer()));
-            return addressRepository.save(p);
-               }).orElseGet( ()->{
-                            Address address = mapperUtil.convert(addressDTO, new Address());
-                            Customer customer = mapperUtil.convert(customerServiceimpl.findById(addressDTO.getCustomerId()), new Customer());
-                            address.setCustomer(customer);
-                            return addressRepository.save(address);});
+
+        Address createdAddress=mapperUtil.convert(addressDTO, new Address());
+        Customer customer=mapperUtil.convert(customerServiceimpl.findById(addressDTO.getCustomerId()),new Customer());
+        createdAddress.setCustomer(customer);
+        addressRepository.save(createdAddress);
         return addressDTO;
+
     }
 
     @Override
     public AddressDTO createAddress(AddressDTO addressDTO) {
+        addressDTO.setId(null);
         Address createdAddress=mapperUtil.convert(addressDTO, new Address());
         Customer customer=mapperUtil.convert(customerServiceimpl.findById(addressDTO.getCustomerId()),new Customer());
         createdAddress.setCustomer(customer);

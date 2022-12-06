@@ -11,9 +11,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIgnoreProperties( ignoreUnknown = true)
+@JsonIgnoreProperties( value={"id"},  ignoreUnknown = true)
 public class AddressDTO{
-    @JsonBackReference
     private Long id;
     private String name;
     private String zipCode;
