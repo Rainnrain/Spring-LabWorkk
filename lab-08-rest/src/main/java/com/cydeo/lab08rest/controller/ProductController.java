@@ -1,6 +1,8 @@
 package com.cydeo.lab08rest.controller;
 
 import com.cydeo.lab08rest.dto.ProductDTO;
+import com.cydeo.lab08rest.dto.ProductRequest;
+import com.cydeo.lab08rest.entity.Category;
 import com.cydeo.lab08rest.model.ResponseWrapper;
 import com.cydeo.lab08rest.service.ProductService;
 import org.springframework.http.HttpStatus;
@@ -28,8 +30,8 @@ public class ProductController {
 
     @PutMapping
     ResponseEntity<ResponseWrapper> updateProduct(@RequestBody ProductDTO productDTO){
-        productService.updateProduct(productDTO);
-        return  ResponseEntity.ok(new ResponseWrapper("Product updated", HttpStatus.OK));
+
+        return  ResponseEntity.ok(new ResponseWrapper("Product updated",productService.updateProduct(productDTO), HttpStatus.OK));
     }
 
     @PostMapping
@@ -38,9 +40,9 @@ public class ProductController {
         return  ResponseEntity.ok(new ResponseWrapper("Product updated", productService.createProduct(productDTO), HttpStatus.OK));
     }
     @PostMapping("/categoryandprice")
-    ResponseEntity<ResponseWrapper> createProductRequest(List<Long> categoryList, BigDecimal price){
+    ResponseEntity<ResponseWrapper> createProductRequest(@RequestBody ProductRequest productRequest){
 
-        return  ResponseEntity.ok(new ResponseWrapper("Product updated", productService.getProductByCategoryAndPrice(categoryList, price), HttpStatus.OK));
+        return  ResponseEntity.ok(new ResponseWrapper("Product updated", productService.getProductListByCategoryAndPrice(productRequest), HttpStatus.OK));
     }
 
     @GetMapping("/{name}")
@@ -57,7 +59,8 @@ public class ProductController {
         return  ResponseEntity.ok(new ResponseWrapper("All products", productService.findByPrice(price), HttpStatus.OK));
     }
     @GetMapping("/price/{price}/quantity/{quantity}")
-    ResponseEntity<ResponseWrapper> getbyPiceAndQuantity(@PathVariable("price") BigDecimal price, @PathVariable("quantity") Integer quantity){
+    ResponseEntity<ResponseWrapper> getbyPiceAndQuantity( @PathVariable("quantity") Integer quantity, @PathVariable("price") BigDecimal price){
+
         return  ResponseEntity.ok(new ResponseWrapper("All products", productService.getProductByPriceandQuantity(price, quantity), HttpStatus.OK));
     }
     @GetMapping("/category/{id}")

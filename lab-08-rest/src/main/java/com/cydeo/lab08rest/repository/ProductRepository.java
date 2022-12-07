@@ -38,4 +38,5 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query(value = "select * from product p join product_category_rel pl on pl.p_id = p.id where pl.c_id in(?1) and p.price > ?2 " , nativeQuery = true)
     List<Product> retrieveProductListByCategory(List<Long> categoryId, BigDecimal price);
 
+    List<Product> findByPrice(BigDecimal price);
 }

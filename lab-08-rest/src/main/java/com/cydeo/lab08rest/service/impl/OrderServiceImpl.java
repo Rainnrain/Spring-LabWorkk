@@ -38,10 +38,10 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public void updateOrder(OrderDTO orderDTO) {
+    public OrderDTO updateOrder(OrderDTO orderDTO) {
     orderDTO.setId(null);
         orderRepository.save(mapperUtil.convert(orderDTO,new Order()));
-
+    return orderDTO;
     }
 
     @Override

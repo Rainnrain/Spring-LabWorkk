@@ -1,0 +1,36 @@
+-------------------------------------------------------------------------------
+Test set: com.cydeo.lab08rest.controller.ProductControllerTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 8, Errors: 0, Skipped: 0, Time elapsed: 0.27 s <<< FAILURE! - in com.cydeo.lab08rest.controller.ProductControllerTest
+getProductList  Time elapsed: 0.004 s  <<< FAILURE!
+java.lang.AssertionError: Status expected:<200> but was:<404>
+	at com.cydeo.lab08rest.controller.ProductControllerTest.getProductList(ProductControllerTest.java:69)
+
+getProductListByPriceAndQuantity  Time elapsed: 0.003 s  <<< FAILURE!
+java.lang.AssertionError: Status expected:<200> but was:<404>
+	at com.cydeo.lab08rest.controller.ProductControllerTest.getProductListByPriceAndQuantity(ProductControllerTest.java:130)
+
+updateProduct  Time elapsed: 0.006 s  <<< FAILURE!
+java.lang.AssertionError: Status expected:<200> but was:<404>
+	at com.cydeo.lab08rest.controller.ProductControllerTest.updateProduct(ProductControllerTest.java:60)
+
+getProductListByName  Time elapsed: 0.039 s  <<< FAILURE!
+java.lang.AssertionError: Status expected:<200> but was:<404>
+	at com.cydeo.lab08rest.controller.ProductControllerTest.getProductListByName(ProductControllerTest.java:93)
+
+getProductListByCategory  Time elapsed: 0.023 s  <<< FAILURE!
+java.lang.AssertionError: Status expected:<200> but was:<404>
+	at com.cydeo.lab08rest.controller.ProductControllerTest.getProductListByCategory(ProductControllerTest.java:102)
+
+getProductListByPrice  Time elapsed: 0.024 s  <<< FAILURE!
+java.lang.AssertionError: Status expected:<200> but was:<404>
+	at com.cydeo.lab08rest.controller.ProductControllerTest.getProductListByPrice(ProductControllerTest.java:112)
+
+createProduct  Time elapsed: 0.025 s  <<< FAILURE!
+java.lang.AssertionError: Status expected:<200> but was:<404>
+	at com.cydeo.lab08rest.controller.ProductControllerTest.createProduct(ProductControllerTest.java:43)
+
+getTop3ProductList  Time elapsed: 0.04 s  <<< FAILURE!
+java.lang.AssertionError: Status expected:<200> but was:<404>
+	at com.cydeo.lab08rest.controller.ProductControllerTest.getTop3ProductList(ProductControllerTest.java:81)
+

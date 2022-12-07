@@ -10,7 +10,7 @@ public interface OrderService {
 
     List<OrderDTO> findAllOrders();
     OrderDTO createOrder(OrderDTO orderDTO);
-    void updateOrder(OrderDTO orderDTO);
+    OrderDTO updateOrder(OrderDTO orderDTO);
     List<OrderDTO> findOrdersByPaymentMethod(PaymentMethod paymentMethod);
     List<OrderDTO> findOrderByEmail(String email);
 }

@@ -1,0 +1,6 @@
+com/cydeo/lab08rest/controller/AddressControllerTest.class
+com/cydeo/lab08rest/controller/OrderControllerTest.class
+com/cydeo/lab08rest/controller/ProductControllerTest.class
+com/cydeo/lab08rest/Lab08RestApplicationTests.class
+com/cydeo/lab08rest/controller/DiscountControllerTest.class
+com/cydeo/lab08rest/controller/CustomerControllerTest.class
