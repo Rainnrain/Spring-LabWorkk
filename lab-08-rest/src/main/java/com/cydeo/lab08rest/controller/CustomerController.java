@@ -25,7 +25,7 @@ public class CustomerController {
     @PutMapping
     public ResponseEntity<ResponseWrapper> updateCustomers(@RequestBody CustomerDTO customerDTO){
         customerService.update(customerDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(new ResponseWrapper("List of Customers", HttpStatus.CREATED));
+        return ResponseEntity.status(HttpStatus.OK).body(new ResponseWrapper("List of Customers", HttpStatus.OK));
     }
 
     @PostMapping

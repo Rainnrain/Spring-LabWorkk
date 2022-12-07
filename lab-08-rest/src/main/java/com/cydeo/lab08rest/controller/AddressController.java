@@ -45,7 +45,9 @@ public class AddressController {
     }
 
     @GetMapping("/customer/{id}/name/{name}")
-    public ResponseEntity<ResponseWrapper> getAddressByCustomerId(@PathVariable Integer id, @PathVariable String name){
-        return ResponseEntity.ok(new ResponseWrapper("Address found by name and id", addressService.addressByCustomerIdAndName(id, name), HttpStatus.OK));
+    public ResponseEntity<ResponseWrapper> getAddressByCustomerIdAndName(@PathVariable("id") Integer id, @PathVariable("name") String name){
+        return ResponseEntity.ok(new ResponseWrapper("Address found by id and name", addressService.addressByCustomerIdAndName(id, name), HttpStatus.OK));
     }
+
+
 }
