@@ -30,6 +30,7 @@ public class DiscountServiceImpl implements DiscountService {
 
     @Override
     public DiscountDTO createDiscount(DiscountDTO discountDTO) {
+      //  Discount discount= discountRepository.save(mapperUtil.convert(discountDTO, new Discount()));
         discountDTO.setId(null);
         discountRepository.save( mapperUtil.convert(discountDTO, new Discount()));
         return discountDTO;
