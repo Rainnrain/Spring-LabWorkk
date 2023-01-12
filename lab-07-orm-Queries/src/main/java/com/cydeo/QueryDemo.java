@@ -1,5 +1,5 @@
 package com.cydeo;
-import com.cydeo.enums.CartState;
+
 import com.cydeo.repository.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -16,7 +16,7 @@ public class QueryDemo implements CommandLineRunner {
     private final OrderRepository orderRepository;
     private final ProductRepository productRepository;
 
-    public QueryDemo(AddressRepository addressRepository, BalanceRepository balanceRepository, CartItemRepository cartItemRepository, CartRepository cartRepository, CustomerRepository customerRepository, DiscountRepository discountRepository, OrderRepository orderRepository, ProductRepository productRepository) {
+    public QueryDemo(com.cydeo.repository.AddressRepository addressRepository, com.cydeo.repository.BalanceRepository balanceRepository, com.cydeo.repository.CartItemRepository cartItemRepository, com.cydeo.repository.CartRepository cartRepository, com.cydeo.repository.CustomerRepository customerRepository, com.cydeo.repository.DiscountRepository discountRepository, com.cydeo.repository.OrderRepository orderRepository, com.cydeo.repository.ProductRepository productRepository) {
         this.addressRepository = addressRepository;
         this.balanceRepository = balanceRepository;
         this.cartItemRepository = cartItemRepository;
